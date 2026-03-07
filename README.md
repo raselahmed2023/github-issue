@@ -4,7 +4,7 @@
        const is also a block scope but it cant reassign or redeclare value.
 
  - 2️⃣ What is the spread operator (...)?
-      Spread operator is introduced in ES6 which is used to access to the inside of an iterable objects
+      Spread operator is introduced in ES6 which is used to access to the inside of an iterable objects.
 
  - 3️⃣ What is the difference between map(), filter(), and forEach()?
       map()-it is used to modify each element and return new array.
