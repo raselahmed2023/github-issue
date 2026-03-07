@@ -1,5 +1,5 @@
  - 1️⃣ What is the difference between var, let, and const?
-       var is function scope and it can be reassign and redeclare its value.
+       var is functional scope and it can be reassign and redeclare its value.
        let is block scope where it can reassign value but not redeclare value.
        const is also a block scope but it cant reassign or redeclare value.
 
