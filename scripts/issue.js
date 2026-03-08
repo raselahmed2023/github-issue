@@ -1,7 +1,6 @@
 let allIssues = ''
 
 
-
 function showAllIssues(issues) {
 
     document.getElementById('issueCount').innerText = issues.length + ' Issues';
@@ -60,8 +59,6 @@ const loadIssue = async () => {
     allIssues = data.data;
     showAllIssues(allIssues);
 }
-
-
 
 
 function filter(tab) {
