@@ -1,4 +1,4 @@
-document.getElementById("singIn").addEventListener('click', function () {
+document.getElementById("signIn").addEventListener('click', function () {
 
     const inputUsername = document.getElementById('inputUsername');
     const userName = inputUsername.value;
@@ -8,7 +8,7 @@ document.getElementById("singIn").addEventListener('click', function () {
 
     if (userName == 'admin' && password == "admin123") {
         alert('Login Successful');
-        window.location.assign("scripts/issue.html");
+        window.location.replace("scripts/issue.html");
     } else {
         alert('login failed')
         return;
