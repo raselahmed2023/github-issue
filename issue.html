@@ -57,9 +57,9 @@
 
     <section class="mx-auto w-11/12 mt-12">
         <div class="p-4 bg-base-400 shadow gap-4 ">
-            <button class="btn">All</button>
-            <button class="btn">Open</button>
-            <button class="btn">Closed</button>
+            <button onclick="filter('all')" class="btn">All</button>
+            <button onclick="filter('open')" class="btn">Open</button>
+            <button onclick="filter('closed')" class="btn">Closed</button>
         </div>
 
     </section>
@@ -73,7 +73,7 @@
             <div class="flex items-center gap-2">
                 <img class="bg-purple-200 rounded-full p-2" src="./assets/Aperture.png" alt="">
                 <div>
-                    <h1 class="font-bold text-xl">50 Issues</h1>
+                    <h1 class="font-bold text-xl" id="issueCount">Issues</h1>
                     <p>Track and manage your project issues</p>
                 </div>
             </div>
@@ -96,6 +96,26 @@
     <section id="issueCards" class="mx-auto w-11/12 grid grid-cols-4 gap-4">
 
     </section>
+
+
+    <section>
+        <!-- Open the modal using ID.showModal() method -->
+        <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <h3 class="text-lg font-bold">Hello!</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+    </section>
+
+
 
 
 
