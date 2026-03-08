@@ -2,11 +2,6 @@ let allIssues = ''
 
 
 
-
-
-
-
-
 function showAllIssues(issues) {
 
     document.getElementById('issueCount').innerText = issues.length + ' Issues';
@@ -56,10 +51,7 @@ function showAllIssues(issues) {
 
         issueCard.appendChild(card);
 
-
-
     });
-
 }
 
 const loadIssue = async () => {
@@ -68,8 +60,6 @@ const loadIssue = async () => {
     allIssues = data.data;
     showAllIssues(allIssues);
 }
-
-
 
 
 
