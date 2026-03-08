@@ -12,7 +12,7 @@ function showAllIssues(issues) {
         const card = document.createElement('div');
 
         card.className = `card bg-base-100 shadow-sm p-3 mt-5 space-y-4 border-t-2 ${issue.status === 'open' ? 'border-t-green-500' : 'border-t-purple-500'}`;
-        const statusIcon = issue.status === 'open' ? './assets/Open-Status.png' : './assets/Closed- Status .png';
+        const statusIcon = issue.status === 'open' ? '/assets/Open-Status.png' : '/assets/Closed- Status .png';
 
         let labelsHTML = '';
         for (let label of issue.labels) {
