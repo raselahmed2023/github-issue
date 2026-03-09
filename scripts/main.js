@@ -16,7 +16,7 @@ function showAllIssues(issues) {
         card.onclick = function () {
             modalShow(issue.id)
         }
-        
+
         const statusIcon = issue.status === 'open' ? './assets/Open-Status.png' : './assets/Closed- Status .png';
 
         let labelsHTML = '';
@@ -29,6 +29,8 @@ function showAllIssues(issues) {
                 labelsHTML = labelsHTML + '<span class="badge badge-soft badge-info"><i class="fa-solid fa-star"></i>ENHANCEMENT</span>';
             } else if (label === 'documentation') {
                 labelsHTML = labelsHTML + '<span class="badge badge-soft badge-success"><i class="fa-solid fa-file-shield"></i>DOCUMENTATION</span>';
+            } else if (label === 'good first issue') {
+                labelsHTML = labelsHTML + '<span class="badge badge-soft badge-secondary"><i class="fa-solid fa-clover"></i>GOOD FIRST ISSUE</span>';
             }
         }
 
@@ -87,23 +89,42 @@ const modalShow = async (id) => {
 }
 
 const displayModal = (issueDetails) => {
-    const detailsContainer = document.getElementById('details-Container')
+
+    let modalLabelsHTML = '';
+    for (let label of issueDetails.labels) {
+        if (label === 'bug') {
+            modalLabelsHTML = modalLabelsHTML + '<span class="badge badge-soft badge-error"><i class="fa-solid fa-bug"></i>BUG</span>';
+        } else if (label === 'help wanted') {
+            modalLabelsHTML = modalLabelsHTML + '<span class="badge badge-soft badge-warning"><i class="fa-solid fa-life-ring"></i>HELP WANTED</span>';
+        } else if (label === 'enhancement') {
+            modalLabelsHTML = modalLabelsHTML + '<span class="badge badge-soft badge-info"><i class="fa-solid fa-star"></i>ENHANCEMENT</span>';
+        } else if (label === 'documentation') {
+            modalLabelsHTML = modalLabelsHTML + '<span class="badge badge-soft badge-success"><i class="fa-solid fa-file-shield"></i>DOCUMENTATION</span>';
+        } else if (label === 'good first issue') {
+            modalLabelsHTML = modalLabelsHTML + '<span class="badge badge-soft badge-secondary"><i class="fa-solid fa-clover"></i>GOOD FIRST ISSUE</span>';
+        }
+    }
+    const detailsContainer = document.getElementById('details-Container');
+    
     detailsContainer.innerHTML = `
                      <h2 class="text-2xl font-bold">${issueDetails.title}</h2>
                  <div class="flex gap-3">
-                     <div class="badge badge-success">${issueDetails.status}</div>
+                     <div class="badge ${issueDetails.status==="open"?'badge-dash badge-primary':"badge-dash badge-secondary"}">${issueDetails.status}</div>
                      <div>. Opened by ${issueDetails.assignee} . ${issueDetails.updatedAt}</div>
                  </div>
-                 <div class="labels"></div>
+                 <div class="flex flex-wrap gap-2">${modalLabelsHTML}</div>
+                
                  <p class="text-gray-400">${issueDetails.description}</p>
                  <div class="flex gap-4 justify-around items-center bg-base-200 p-4">
                      <div>
                          <h2 class="text-gray-400">Assignee:</h2>
-                         <h1>${issueDetails.assignee}</h1>
+                         <h1 class="text-xl font-bold">${issueDetails.assignee}</h1>
                      </div>
+                     
                      <div>
                          <h2 class="text-gray-400">Priority:</h2>
-                         <p>${issueDetails.priority}</p>
+                         <p class="badge badge-soft text-xl m-0 p-0 font-bold ${issueDetails.priority === 'high' ? 'badge-error' : issueDetails.priority === 'medium' ? 'badge-warning' : 'badge-ghost'}">
+                         ${issueDetails.priority}</p>
                      </div>
                  </div>
     
