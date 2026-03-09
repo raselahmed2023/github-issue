@@ -83,19 +83,19 @@ const manageSpinner = (load) => {
 
 function filter(tab) {
 
-    document.getElementById('all').className="btn";
-    document.getElementById('open').className="btn";
-    document.getElementById('closed').className="btn";
+    document.getElementById('all').className = "btn";
+    document.getElementById('open').className = "btn";
+    document.getElementById('closed').className = "btn";
 
     if (tab === 'all') {
-        document.getElementById('all').className="btn btn-primary"
+        document.getElementById('all').className = "btn btn-primary"
         showAllIssues(allIssues);
     } else if (tab === 'open') {
-        document.getElementById('open').className="btn btn-primary"
+        document.getElementById('open').className = "btn btn-primary"
         showAllIssues(allIssues.filter(issue => issue.status === 'open'));
 
     } else if (tab === 'closed') {
-        document.getElementById('closed').className="btn btn-primary"
+        document.getElementById('closed').className = "btn btn-primary"
         showAllIssues(allIssues.filter(issue => issue.status === 'closed'));
     }
 }
@@ -154,6 +154,19 @@ const displayModal = (issueDetails) => {
     `
     document.getElementById('issue_modal').showModal();
 
+}
+
+const handleSearch =async () => {
+    const value = document.getElementById('inputIssue').value;
+    if (value) {
+        const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${value}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        showAllIssues(data.data);
+    }
+    else {
+        alert('please write valid text')
+    }
 }
 
 
