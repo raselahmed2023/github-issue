@@ -1,5 +1,15 @@
 let allIssues = ''
 
+const loadIssue = async () => {
+    manageSpinner(true);
+
+    const response = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
+    const data = await response.json()
+    allIssues = data.data;
+    showAllIssues(allIssues);
+}
+
+
 
 function showAllIssues(issues) {
 
@@ -54,34 +64,45 @@ function showAllIssues(issues) {
            </div>
         
         `
-
         issueCard.appendChild(card);
-
     });
+    manageSpinner(false);
 }
 
-const loadIssue = async () => {
-    const response = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
-    const data = await response.json()
-    allIssues = data.data;
-    showAllIssues(allIssues);
-}
-
-
-function filter(tab) {
-    if (tab === 'all') {
-        showAllIssues(allIssues);
-    } else if (tab === 'open') {
-        showAllIssues(allIssues.filter(issue => issue.status === 'open'));
-
-    } else if (tab === 'closed') {
-        showAllIssues(allIssues.filter(issue => issue.status === 'closed'));
+const manageSpinner = (load) => {
+    if (load == true) {
+        document.getElementById('loading').classList.remove('hidden');
+        document.getElementById('issueCards').classList.add('hidden')
+    } else {
+        document.getElementById('issueCards').classList.remove('hidden');
+        document.getElementById('loading').classList.add('hidden')
     }
 }
 
 
 
+function filter(tab) {
+
+    document.getElementById('all').className="btn";
+    document.getElementById('open').className="btn";
+    document.getElementById('closed').className="btn";
+
+    if (tab === 'all') {
+        document.getElementById('all').className="btn btn-primary"
+        showAllIssues(allIssues);
+    } else if (tab === 'open') {
+        document.getElementById('open').className="btn btn-primary"
+        showAllIssues(allIssues.filter(issue => issue.status === 'open'));
+
+    } else if (tab === 'closed') {
+        document.getElementById('closed').className="btn btn-primary"
+        showAllIssues(allIssues.filter(issue => issue.status === 'closed'));
+    }
+}
+
+
 const modalShow = async (id) => {
+
     const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
     const res = await fetch(url);
     const details = await res.json();
@@ -104,12 +125,13 @@ const displayModal = (issueDetails) => {
             modalLabelsHTML = modalLabelsHTML + '<span class="badge badge-soft badge-secondary"><i class="fa-solid fa-clover"></i>GOOD FIRST ISSUE</span>';
         }
     }
+
     const detailsContainer = document.getElementById('details-Container');
-    
+
     detailsContainer.innerHTML = `
                      <h2 class="text-2xl font-bold">${issueDetails.title}</h2>
                  <div class="flex gap-3">
-                     <div class="badge ${issueDetails.status==="open"?'badge-dash badge-primary':"badge-dash badge-secondary"}">${issueDetails.status}</div>
+                     <div class="badge ${issueDetails.status === "open" ? 'badge-dash badge-primary' : "badge-dash badge-secondary"}">${issueDetails.status}</div>
                      <div>. Opened by ${issueDetails.assignee} . ${issueDetails.updatedAt}</div>
                  </div>
                  <div class="flex flex-wrap gap-2">${modalLabelsHTML}</div>
@@ -133,7 +155,6 @@ const displayModal = (issueDetails) => {
     document.getElementById('issue_modal').showModal();
 
 }
-
 
 
 loadIssue();

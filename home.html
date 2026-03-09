@@ -57,9 +57,9 @@
 
     <section class="mx-auto w-11/12 mt-12">
         <div class="p-4 bg-base-400 shadow gap-4 ">
-            <button onclick="filter('all')" class="btn btn-primary">All</button>
-            <button onclick="filter('open')" class="btn">Open</button>
-            <button onclick="filter('closed')" class="btn">Closed</button>
+            <button id="all" onclick="filter('all')" class="btn btn-primary">All</button>
+            <button id="open" onclick="filter('open')" class="btn">Open</button>
+            <button id="closed" onclick="filter('closed')" class="btn">Closed</button>
         </div>
 
     </section>
@@ -91,6 +91,10 @@
 
     </section>
 
+    <section id="loading" class="flex justify-center items-center py-5 hidden">
+        <span class="loading loading-ring loading-xl"></span>
+    </section>
+
     <!-- main section and issues -->
 
     <section id="issueCards" class="mx-auto w-11/12 grid grid-cols-4 gap-4">
@@ -98,7 +102,7 @@
 
 
     <section>
-        <!-- Open the modal using ID.showModal() method -->
+        <!-- Open the modal-->
 
         <dialog id="issue_modal" class="modal modal-bottom sm:modal-middle">
             <div class="modal-box">
