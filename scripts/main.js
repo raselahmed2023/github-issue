@@ -12,6 +12,11 @@ function showAllIssues(issues) {
         const card = document.createElement('div');
 
         card.className = `card bg-base-100 shadow-sm p-3 mt-5 space-y-4 border-t-2 ${issue.status === 'open' ? 'border-t-green-500' : 'border-t-purple-500'}`;
+
+        card.onclick = function () {
+            modalShow(issue.id)
+        }
+        
         const statusIcon = issue.status === 'open' ? './assets/Open-Status.png' : './assets/Closed- Status .png';
 
         let labelsHTML = '';
@@ -71,5 +76,43 @@ function filter(tab) {
         showAllIssues(allIssues.filter(issue => issue.status === 'closed'));
     }
 }
+
+
+
+const modalShow = async (id) => {
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`
+    const res = await fetch(url);
+    const details = await res.json();
+    displayModal(details.data)
+}
+
+const displayModal = (issueDetails) => {
+    const detailsContainer = document.getElementById('details-Container')
+    detailsContainer.innerHTML = `
+                     <h2 class="text-2xl font-bold">${issueDetails.title}</h2>
+                 <div class="flex gap-3">
+                     <div class="badge badge-success">${issueDetails.status}</div>
+                     <div>. Opened by ${issueDetails.assignee} . ${issueDetails.updatedAt}</div>
+                 </div>
+                 <div class="labels"></div>
+                 <p class="text-gray-400">${issueDetails.description}</p>
+                 <div class="flex gap-4 justify-around items-center bg-base-200 p-4">
+                     <div>
+                         <h2 class="text-gray-400">Assignee:</h2>
+                         <h1>${issueDetails.assignee}</h1>
+                     </div>
+                     <div>
+                         <h2 class="text-gray-400">Priority:</h2>
+                         <p>${issueDetails.priority}</p>
+                     </div>
+                 </div>
+    
+    
+    `
+    document.getElementById('issue_modal').showModal();
+
+}
+
+
 
 loadIssue();
