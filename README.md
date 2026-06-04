@@ -20,4 +20,4 @@
       Template literals use as backticks (``). This is very powerful and it is also
       introduced in ES6. It can be used to write multiple strings and string interpolation.
 
-      live link:  https://raselahmed2023.github.io/github-issue/
+      live link:  https://resilient-panda-f132a7.netlify.app/
