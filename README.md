@@ -1,23 +1,124 @@
- - 1️⃣ What is the difference between var, let, and const?
-       var is functional scope and it can be reassign and redeclare its value.
-       let is block scope where it can reassign value but not redeclare value.
-       const is also a block scope but it cant reassign or redeclare value.
+#  GitHub Issues Tracker
 
- - 2️⃣ What is the spread operator (...)?
-      Spread operator is introduced in ES6 which is used to access to the inside of an iterable objects.
+A responsive GitHub Issues Tracker application that allows users to browse, search, filter, and inspect GitHub issues through an intuitive interface. The project includes authentication, issue filtering, detailed issue views, loading states, and responsive layouts.
 
- - 3️⃣ What is the difference between map(), filter(), and forEach()?
-      map()-it is used to modify each element and return new array.
-      filter()-select element based on condition and return new array.
-      forEach()- loop through array and return nothing.
+##  Live Demo
 
- - 4️⃣ What is an arrow function?
-      Arrow function are a shorter way to write functions which is introduced in ES6.
-      -It helps o write shorter functions.
-      -Cleaner code and easy to understand.
-    
- - 5️⃣ What are template literals?
-      Template literals use as backticks (``). This is very powerful and it is also
-      introduced in ES6. It can be used to write multiple strings and string interpolation.
+🔗 Live Site: https://resilient-panda-f132a7.netlify.app/
 
-      live link:  https://resilient-panda-f132a7.netlify.app/
+
+---
+
+##  Features
+
+###  Authentication
+- Secure login page
+- Admin credential-based sign in
+- Demo credentials provided
+- Clean and modern UI
+
+### Issue Management
+- Load and display all GitHub issues
+- View issue count and status indicators
+- Search issues by keyword
+- Responsive issue listing interface
+
+###  Issue Filtering
+- All Issues tab
+- Open Issues tab
+- Closed Issues tab
+- Dynamic issue loading based on selected tab
+
+### 📄 Detailed Issue View
+Each issue card displays:
+
+- Title
+- Description
+- Status
+- Author
+- Priority
+- Label
+- Created Date
+
+Clicking an issue card opens a modal displaying complete issue details.
+
+### 🎨 UI Enhancements
+- Green top border for Open issues
+- Purple top border for Closed issues
+- Loading spinner during data fetching
+- Fully responsive design
+- Clean card-based layout
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+
+### API
+- GitHub Issues API
+
+### Deployment
+- Netlify
+
+---
+
+## 📸 Screenshots
+
+### Login Page
+
+<img width="800" height="400" alt="Screenshot 2026-06-04 110006" src="https://github.com/user-attachments/assets/7e8b0b82-1149-4df1-b007-78b3377b2cf1" />
+
+### Home Page
+
+<img width="800" height="400" alt="Screenshot 2026-06-04 105935" src="https://github.com/user-attachments/assets/9dd2d500-e6b6-4346-95ea-8bd17aef62f9" />
+
+
+
+---
+
+## ⚙️ Installation & Setup
+
+### Clone Repository
+
+```bash
+git clone https://github.com/raselahmed2023/github-issue.git
+cd github-issue
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run Development Server
+
+If using VS Code:
+
+```bash
+npx live-server
+```
+
+or simply open:
+
+```bash
+index.html
+```
+
+
+
+##  Future Improvements
+
+- Pagination
+- Advanced filtering
+- Sorting by date and priority
+- Dark mode support
+- User authentication with GitHub OAuth
+
+💼 LinkedIn: https://www.linkedin.com/in/rasel-ahmed06/
+
+📧 Email: raselahmediu22@gmail.com
