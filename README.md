@@ -89,13 +89,6 @@ git clone https://github.com/raselahmed2023/github-issue.git
 cd github-issue
 ```
 
-## 🛠️ Tech Stack
-
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- GitHub Issues API
-
 ## ⚙️ Run Locally
 
 ##  Future Improvements
