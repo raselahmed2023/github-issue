@@ -89,27 +89,14 @@ git clone https://github.com/raselahmed2023/github-issue.git
 cd github-issue
 ```
 
-### Install Dependencies
+## 🛠️ Tech Stack
 
-```bash
-npm install
-```
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- GitHub Issues API
 
-### Run Development Server
-
-If using VS Code:
-
-```bash
-npx live-server
-```
-
-or simply open:
-
-```bash
-index.html
-```
-
-
+## ⚙️ Run Locally
 
 ##  Future Improvements
 
@@ -118,7 +105,3 @@ index.html
 - Sorting by date and priority
 - Dark mode support
 - User authentication with GitHub OAuth
-
-💼 LinkedIn: https://www.linkedin.com/in/rasel-ahmed06/
-
-📧 Email: raselahmediu22@gmail.com
